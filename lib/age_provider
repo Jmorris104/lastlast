@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+
+class AgeProvider with ChangeNotifier {
+  int _age = 0;
+
+  int get age => _age;
+
+  void incrementAge() {
+    _age++;
+    notifyListeners();
+  }
+
+  String get milestoneMessage {
+    if (_age >= 0 && _age <= 12) {
+      return "You're a child!";
+    } else if (_age >= 13 && _age <= 19) {
+      return "Teenager time!";
+    } else if (_age >= 20 && _age <= 30) {
+      return "You're a young adult!";
+    } else if (_age >= 31 && _age <= 50) {
+      return "You're an adult now!";
+    } else {
+      return "Golden years!";
+    }
+  }
+
+  Color get backgroundColor {
+    if (_age >= 0 && _age <= 12) {
+      return Colors.lightBlue;
+    } else if (_age >= 13 && _age <= 19) {
+      return Colors.lightGreen;
+    } else if (_age >= 20 && _age <= 30) {
+      return Colors.lightYellow;
+    } else if (_age >= 31 && _age <= 50) {
+      return Colors.orange;
+    } else {
+      return Colors.lightGray;
+    }
+  }
+}
